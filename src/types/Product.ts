@@ -1,0 +1,10 @@
+export interface IProduct {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  stock: number;
+  slug: string;
+}
