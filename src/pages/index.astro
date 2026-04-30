@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import productsData from "../data/products.json";
 import { ProductCatalog } from "../logic/ProductCatalog";
+import '../styles/global.css'
 
 // Initialize the catalog with the JSON data
 const catalog = new ProductCatalog(productsData);
