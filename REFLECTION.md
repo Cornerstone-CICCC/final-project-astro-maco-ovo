@@ -1,4 +1,4 @@
-# Live Site URL: [Paste your Netlify/Vercel/GitHub Pages link here]
+# Live Site URL: https://201-final-project-astro.netlify.app/
 
 ## Routing Approach
 For the individual product pages, I chose to implement dynamic routing using `[slug].astro` and the `getStaticPaths()` function. 

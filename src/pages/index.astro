@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import productsData from "../data/products.json";
 import { ProductCatalog } from "../logic/ProductCatalog";
 import '../styles/global.css'
+import ProductCard from "../components/ProductCard.astro";
 
 const catalog = new ProductCatalog(productsData);
 const allProducts = catalog.getAllProducts();
@@ -35,27 +36,10 @@ const uniqueCategories = [...new Set(allProducts.map(p => p.category))];
     </div>
 
 
-    <!-- 2. The Product Grid  -->
+    <!-- 2. The Product Cards  -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="product-grid">
       {allProducts.map((product) => (
-        <div 
-          class="product-card bg-gray-50/80 rounded-lg p-5 shadow-md hover:scale-[1.03] hover:shadow-mist-400 duration-300"
-          data-category={product.category}
-          data-instock={product.inStock.toString()}
-        >
-          <img src={product.image} alt={product.title} class="w-full h-48 object-cover mb-4 rounded" />
-          <h2 class="text-xl font-semibold">{product.title}</h2>
-          <p class="text-gray-600 mb-2 capitalize">{product.category}</p>
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-bold">{product.getFormattedPrice()}</span>
-            <span class={`text-sm font-medium ${product.inStock ? 'text-green-600' : 'text-red-500'}`}>
-              {product.getAvailabilityMessage()}
-            </span>
-          </div>
-          <a href={`/products/${product.slug}`} class="mt-4 block text-center bg-[#1c97bd] text-white border-white py-2 rounded-full hover:bg-[#1c97bdc4] transition-colors font-medium shadow-sm">
-            View Details
-          </a>
-        </div>
+        <ProductCard product={product} /> 
       ))}
     </div>
   </main>
