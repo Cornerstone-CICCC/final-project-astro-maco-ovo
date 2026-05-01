@@ -1,10 +1,12 @@
 # Live Site URL: https://201-final-project-astro.netlify.app/
 
 ## Routing Approach
-For the individual product pages, I chose to implement dynamic routing using `[slug].astro` and the `getStaticPaths()` function. 
+For the individual product pages, I chose to dynamic routing with `[slug].astro` and the `getStaticPaths()` function. 
 
 ## Rationale & Benefits
-I chose this approach because it is highly scalable. Instead of manually authoring a static HTML page for every single piece of jewelry, this method allows Astro to automatically generate a dedicated page for every item in the `products.json` catalog during the build process. If the store adds 50 new items to the JSON file tomorrow, the site will automatically create 50 new pages without requiring any new code.
+I chose this approach because it is very efficient and scalable. I only need one template file to create all the product pages. 
+
+The biggest benefit is that it is easy to update. If the store adds more jewelry to the `products.json` file in the future, Astro will automatically generate the new pages. I do not need to make new files by hand.
 
 ## Limitations & Trade-offs
-The main trade-off of this approach is the initial complexity of the setup. It required writing strict TypeScript interfaces and mapping the catalog data precisely within `getStaticPaths()` so that the `product` prop could be successfully passed down as an instantiated Class object to the template.
+The main trade-off is that the initial setup is a bit difficult. I had to write strict TypeScript interfaces and carefully map the JSON data inside `getStaticPaths()` so that the `product` prop could be passed correctly to the UI components.
