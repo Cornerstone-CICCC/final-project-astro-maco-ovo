@@ -1,5 +1,8 @@
 # Live Site URL: https://201-final-project-astro.netlify.app/
 
+## Project Root
+![projectRoot](image.png)
+
 ## Routing Approach
 For the individual product pages, I chose to dynamic routing with `[slug].astro` and the `getStaticPaths()` function. 
 
